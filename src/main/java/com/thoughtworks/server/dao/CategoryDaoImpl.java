@@ -24,7 +24,7 @@ public class CategoryDaoImpl implements CategoryDao{
             public Category mapRow(ResultSet rs, int i) throws SQLException {
                 return new Category(rs.getInt("id"), rs.getString("name"), rs.getInt("numOfItem"));
             }
-        });
+        }, id);
     }
 
     @Override
