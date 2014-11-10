@@ -9,7 +9,7 @@ drop table cartItems;
 create table categories (
   id int(11) NOT NULL auto_increment,
   name varchar(30) NOT NULL,
-  num int(11) NOT NULL,
+  numOfItem int(11) NOT NULL,
   PRIMARY KEY  (id)
 );
 
