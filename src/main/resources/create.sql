@@ -1,6 +1,6 @@
-DROP DATABASE EXISTS server-java;
-CREATE DATABASE server-java DEFAULT CHARACTER SET utf8;
-use server-java;
+DROP DATABASE IF EXISTS server_java;
+CREATE DATABASE server_java DEFAULT CHARACTER SET utf8;
+use server_java;
 
 drop table categories;
 drop table items;
@@ -31,10 +31,10 @@ create table cartItems (
   foreign key(itemId) references items(id)
 );
 
-insert into categories values(null,'饮品', 0);
-insert into categories values(null,'水果', 0);
-insert into categories values(null,'零食', 0);
-insert into categories values(null,'生活用品', 0);
+insert into categories values(null,'饮品', 2);
+insert into categories values(null,'水果', 2);
+insert into categories values(null,'零食', 1);
+insert into categories values(null,'生活用品', 1);
 
 insert into items values(null, '葡萄', 6.5, '斤', 2);
 insert into items values(null, '雪碧', 3.5, '瓶', 1);
