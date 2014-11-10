@@ -1,7 +1,17 @@
 package com.thoughtworks.server.dao;
 
-/**
- * Created by zhangzhihui on 14-11-10.
- */
+import com.thoughtworks.server.model.Category;
+
+import java.util.List;
+
 public interface CategoryDao {
+    Category getCategoryById(int id);
+
+    void insertCategory(Category category);
+
+    void deleteCategoryById(int id);
+
+    void updateCategoryById(int id);
+
+    List<Category> getCategories();
 }
