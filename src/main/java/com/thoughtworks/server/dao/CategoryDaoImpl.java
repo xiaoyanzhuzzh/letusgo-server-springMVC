@@ -44,6 +44,12 @@ public class CategoryDaoImpl implements CategoryDao{
 
     @Override
     public List<Category> getCategories() {
-        return null;
+        String sql = "SELECT * FROM categories";
+        return jdbcTemplate.query(sql, new RowMapper<Category>() {
+            @Override
+            public Category mapRow(ResultSet rs, int i) throws SQLException {
+                return new Category(rs.getInt("id"), rs.getString("name"), rs.getInt("numOfItem"));
+            }
+        });
     }
 }
