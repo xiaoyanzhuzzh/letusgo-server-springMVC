@@ -31,7 +31,6 @@ public class CategoryServiceImplTest {
         categories.add(category);
 
         when(categoryDaoImpl.getCategoryById(id)).thenReturn(category);
-//        when(categoryDaoImpl.insertCategory(category)).thenReturn("插入成功");
         when(categoryDaoImpl.getCategories()).thenReturn(categories);
 
         categoryServiceImpl = new CategoryServiceImpl();
