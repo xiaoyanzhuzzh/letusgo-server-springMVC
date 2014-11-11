@@ -9,9 +9,12 @@ import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
-
     @Autowired
     private CategoryDao categoryDaoImpl;
+
+    public void setCategoryDaoImpl(CategoryDao categoryDaoImpl) {
+        this.categoryDaoImpl = categoryDaoImpl;
+    }
 
     @Override
     public Category getCategoryById(int id) {
