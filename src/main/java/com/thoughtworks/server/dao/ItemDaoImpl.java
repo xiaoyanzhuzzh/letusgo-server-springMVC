@@ -1,7 +1,10 @@
 package com.thoughtworks.server.dao;
 
-/**
- * Created by zhangzhihui on 14-11-11.
- */
-public class ItemDaoImpl {
+import com.thoughtworks.server.model.Item;
+
+public class ItemDaoImpl implements ItemDao{
+    @Override
+    public Item getItemById(int id) {
+        return null;
+    }
 }

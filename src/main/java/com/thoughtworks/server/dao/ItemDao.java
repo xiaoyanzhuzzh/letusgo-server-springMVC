@@ -1,7 +1,7 @@
 package com.thoughtworks.server.dao;
 
-/**
- * Created by zhangzhihui on 14-11-11.
- */
+import com.thoughtworks.server.model.Item;
+
 public interface ItemDao {
+    Item getItemById(int id);
 }
