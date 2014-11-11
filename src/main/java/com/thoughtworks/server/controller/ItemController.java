@@ -5,6 +5,8 @@ import com.thoughtworks.server.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class ItemController {
@@ -14,5 +16,10 @@ public class ItemController {
     @RequestMapping(value = "/items/{id}", method = RequestMethod.GET)
     public @ResponseBody Item getItemById(@PathVariable int id){
         return itemServiceImpl. getItemById(id);
+    }
+
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public @ResponseBody List<Item> getItems(){
+        return itemServiceImpl. getItems();
     }
 }
