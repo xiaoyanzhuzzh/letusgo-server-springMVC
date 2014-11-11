@@ -3,9 +3,11 @@ package com.thoughtworks.server.dao;
 import com.thoughtworks.server.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -28,8 +30,15 @@ public class CategoryDaoImpl implements CategoryDao{
     }
 
     @Override
-    public void insertCategory(Category category) {
-
+    public void insertCategory(final Category category) {
+        String sql = "INSERT INTO categories VALUES(null, ?, ?)";
+        jdbcTemplate.update(sql, new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1, category.getName());
+                preparedStatement.setInt(2, category.getNumberOfItem());
+            }
+        });
     }
 
     @Override
