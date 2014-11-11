@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public void insertCategory(Category category) {
-
+        categoryDaoImpl.insertCategory(category);
     }
 
     @Override
