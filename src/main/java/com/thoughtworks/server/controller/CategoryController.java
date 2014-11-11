@@ -18,6 +18,11 @@ public class CategoryController {
         return categoryServiceImpl.getCategoryById(id);
     }
 
+    @RequestMapping(value = "/categories/{id}", method = RequestMethod.DELETE)
+    public void deleteCategoryById(@PathVariable int id){
+        categoryServiceImpl.deleteCategoryById(id);
+    }
+
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     public @ResponseBody List<Category> getCategories(){
         return categoryServiceImpl.getCategories();
