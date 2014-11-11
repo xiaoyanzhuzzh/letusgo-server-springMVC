@@ -3,8 +3,12 @@ package com.thoughtworks.server.service;
 import com.thoughtworks.server.dao.ItemDao;
 import com.thoughtworks.server.model.Item;
 
+import java.util.List;
+
 public interface ItemService {
     Item getItemById(int i);
 
     void setItemDaoImpl(ItemDao itemDaoImpl);
+
+    List<Item> getItems();
 }

@@ -5,6 +5,8 @@ import com.thoughtworks.server.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements ItemService {
     @Autowired
@@ -18,5 +20,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void setItemDaoImpl(ItemDao itemDaoImpl) {
         this.itemDaoImpl = itemDaoImpl;
+    }
+
+    @Override
+    public List<Item> getItems() {
+        return null;
     }
 }
