@@ -49,6 +49,11 @@ public class CategoryServiceImplTest {
     }
 
     @Test
+    public void can_delete_category_by_id(){
+        categoryServiceImpl.deleteCategoryById(9);
+        verify(categoryDaoImpl).deleteCategoryById(9);
+    }
+    @Test
     public void can_get_all_categories(){
         assertThat(categoryServiceImpl.getCategories().size()).isEqualTo(1);
         assertThat(categoryServiceImpl.getCategories().get(0)).isEqualTo(category);
