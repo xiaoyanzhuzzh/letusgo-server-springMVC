@@ -56,8 +56,8 @@ public class CategoryServiceImplTest {
 
     @Test
     public void can_update_category_by_id(){
-        categoryServiceImpl.updateCategoryById(1);
-        verify(categoryDaoImpl).updateCategoryById(1);
+        categoryServiceImpl.updateCategoryById(category);
+        verify(categoryDaoImpl).updateCategoryById(category);
     }
 
     @Test
