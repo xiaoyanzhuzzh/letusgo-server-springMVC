@@ -17,7 +17,7 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public Item getItemById(int id) {
-        final String sql = "SELECT * FROM items WHERE id = ?";
+        String sql = "SELECT * FROM items WHERE id = ?";
 
         return jdbcTemplate.queryForObject(sql, new RowMapper<Item>() {
             @Override
@@ -30,6 +30,14 @@ public class ItemDaoImpl implements ItemDao{
 
     @Override
     public List<Item> getItems() {
-        return null;
+        String sql = "SELECT * FROM items";
+
+        return jdbcTemplate.query(sql, new RowMapper<Item>() {
+            @Override
+            public Item mapRow(ResultSet rs, int i) throws SQLException {
+                return new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
+                        rs.getString("unit"), rs.getInt("categoryId"));
+            }
+        });
     }
 }
