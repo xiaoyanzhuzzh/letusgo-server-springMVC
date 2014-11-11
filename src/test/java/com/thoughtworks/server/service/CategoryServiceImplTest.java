@@ -6,6 +6,7 @@ import com.thoughtworks.server.model.Category;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -14,14 +15,20 @@ import static org.mockito.Mockito.when;
 
 public class CategoryServiceImplTest {
     Category category;
+    List<Category> categories = new ArrayList<Category>();
     CategoryService categoryServiceImpl;
 
     @Before
     public void mock_CategoryDaoImpl(){
         CategoryDao categoryDaoImpl = mock(CategoryDaoImpl.class);
+
         int id = 1;
         category = new Category(1, "水果", 2);
+
+        categories.add(category);
+
         when(categoryDaoImpl.getCategoryById(id)).thenReturn(category);
+        when(categoryDaoImpl.getCategories()).thenReturn(categories);
 
         categoryServiceImpl = new CategoryServiceImpl();
         categoryServiceImpl.setCategoryDaoImpl(categoryDaoImpl);
@@ -32,4 +39,9 @@ public class CategoryServiceImplTest {
         assertThat(categoryServiceImpl.getCategoryById(1)).isEqualTo(category);
     }
 
+    @Test
+    public void can_get_all_categories(){
+        assertThat(categoryServiceImpl.getCategories().size()).isEqualTo(1);
+        assertThat(categoryServiceImpl.getCategories().get(0)).isEqualTo(category);
+    }
 }
