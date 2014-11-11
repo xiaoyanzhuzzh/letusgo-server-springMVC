@@ -5,6 +5,8 @@ import com.thoughtworks.server.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class CategoryController {
@@ -14,5 +16,10 @@ public class CategoryController {
     @RequestMapping(value = "/categories/{id}", method = RequestMethod.GET)
     public @ResponseBody Category getCategoryById(@PathVariable int id){
         return categoryServiceImpl.getCategoryById(id);
+    }
+
+    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    public @ResponseBody List<Category> getCategories(){
+        return categoryServiceImpl.getCategories();
     }
 }
