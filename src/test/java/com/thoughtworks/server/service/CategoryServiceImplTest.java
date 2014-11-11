@@ -13,22 +13,23 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CategoryServiceImplTest {
+    Category category;
+    CategoryService categoryServiceImpl;
+
     @Before
     public void mock_CategoryDaoImpl(){
         CategoryDao categoryDaoImpl = mock(CategoryDaoImpl.class);
         int id = 1;
-        Category category = new Category(1, "水果", 2);
+        category = new Category(1, "水果", 2);
         when(categoryDaoImpl.getCategoryById(id)).thenReturn(category);
 
-        CategoryService categoryServiceImpl = new CategoryServiceImpl();
+        categoryServiceImpl = new CategoryServiceImpl();
         categoryServiceImpl.setCategoryDaoImpl(categoryDaoImpl);
     }
 
-
-
     @Test
     public void can_get_category_by_id(){
-        assertThat("hello").isEqualTo("hello");
+        assertThat(categoryServiceImpl.getCategoryById(1)).isEqualTo(category);
     }
 
 }
