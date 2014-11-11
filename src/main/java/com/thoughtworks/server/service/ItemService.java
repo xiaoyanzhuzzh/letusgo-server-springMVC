@@ -1,7 +1,10 @@
 package com.thoughtworks.server.service;
 
-/**
- * Created by zhangzhihui on 14-11-12.
- */
+import com.thoughtworks.server.dao.ItemDao;
+import com.thoughtworks.server.model.Item;
+
 public interface ItemService {
+    Item getItemById(int i);
+
+    void setItemDaoImpl(ItemDao itemDaoImpl);
 }
