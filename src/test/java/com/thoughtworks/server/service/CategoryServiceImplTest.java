@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,6 +28,7 @@ public class CategoryServiceImplTest {
 
     @Test
     public void can_get_category_by_id(){
+        assertThat("hello").isEqualTo("hello");
     }
 
 }
