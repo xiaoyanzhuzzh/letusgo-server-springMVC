@@ -11,16 +11,19 @@ import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CategoryServiceImplTest {
     Category category;
     List<Category> categories = new ArrayList<Category>();
+
+    CategoryDao categoryDaoImpl;
     CategoryService categoryServiceImpl;
 
     @Before
     public void mock_CategoryDaoImpl(){
-        CategoryDao categoryDaoImpl = mock(CategoryDaoImpl.class);
+        categoryDaoImpl = mock(CategoryDaoImpl.class);
 
         int id = 1;
         category = new Category(1, "水果", 2);
@@ -28,6 +31,7 @@ public class CategoryServiceImplTest {
         categories.add(category);
 
         when(categoryDaoImpl.getCategoryById(id)).thenReturn(category);
+//        when(categoryDaoImpl.insertCategory(category)).thenReturn("插入成功");
         when(categoryDaoImpl.getCategories()).thenReturn(categories);
 
         categoryServiceImpl = new CategoryServiceImpl();
@@ -37,6 +41,12 @@ public class CategoryServiceImplTest {
     @Test
     public void can_get_category_by_id(){
         assertThat(categoryServiceImpl.getCategoryById(1)).isEqualTo(category);
+    }
+
+    @Test
+    public void can_insert_category(){
+        categoryServiceImpl.insertCategory(category);
+        verify(categoryDaoImpl).insertCategory(category);
     }
 
     @Test
