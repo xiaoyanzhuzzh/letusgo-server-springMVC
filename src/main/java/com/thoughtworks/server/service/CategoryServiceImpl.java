@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public void updateCategoryById(int id) {
-
+        categoryDaoImpl.updateCategoryById(id);
     }
 
     @Override

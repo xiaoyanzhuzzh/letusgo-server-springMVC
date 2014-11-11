@@ -59,7 +59,7 @@ public class CategoryServiceImplTest {
         categoryServiceImpl.updateCategoryById(1);
         verify(categoryDaoImpl).updateCategoryById(1);
     }
-    
+
     @Test
     public void can_get_all_categories(){
         assertThat(categoryServiceImpl.getCategories().size()).isEqualTo(1);
