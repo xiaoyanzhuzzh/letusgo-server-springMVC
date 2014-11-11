@@ -32,8 +32,8 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public void updateCategoryById(int id) {
-        categoryDaoImpl.updateCategoryById(id);
+    public void updateCategoryById(Category category) {
+        categoryDaoImpl.updateCategoryById(category);
     }
 
     @Override
