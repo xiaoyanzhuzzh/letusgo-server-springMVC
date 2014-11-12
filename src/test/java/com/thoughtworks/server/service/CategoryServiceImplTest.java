@@ -40,6 +40,7 @@ public class CategoryServiceImplTest {
     @Test
     public void can_get_category_by_id(){
         assertThat(categoryServiceImpl.getCategoryById(1)).isEqualTo(category);
+        verify(categoryDaoImpl).getCategoryById(1);
     }
 
     @Test
@@ -63,6 +64,6 @@ public class CategoryServiceImplTest {
     @Test
     public void can_get_all_categories(){
         assertThat(categoryServiceImpl.getCategories().size()).isEqualTo(1);
-        assertThat(categoryServiceImpl.getCategories().get(0)).isEqualTo(category);
+        verify(categoryDaoImpl).getCategories();
     }
 }
