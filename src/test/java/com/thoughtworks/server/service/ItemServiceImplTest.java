@@ -42,6 +42,12 @@ public class ItemServiceImplTest {
     }
 
     @Test
+    public void can_delete_item_by_id(){
+        itemServiceImpl.deleteItemById(1);
+        verify(itemDaoImpl).deleteItemById(1);
+    }
+
+    @Test
     public void can_get_all_items(){
         assertThat(itemServiceImpl.getItems().size()).isEqualTo(1);
         verify(itemDaoImpl).getItems();
