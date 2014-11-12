@@ -32,10 +32,20 @@
         <property name="order" value="0"/>
         <property name= "contentNegotiationManager" ref= "contentNegotiationManager"/>
         <property name= "defaultViews">
-            <bean class= "org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-                <property name="extractValueFromSingleKeyModel" value="true"/>
-                <property name="contentType" value="application/json;charset=UTF-8" />
-            </bean>
+            <list>
+                <bean class= "org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                    <property name="extractValueFromSingleKeyModel" value="true"/>
+                    <property name="contentType" value="application/json;charset=UTF-8" />
+                </bean>
+                <bean class= "org.springframework.web.servlet.view.xml.MarshallingView">
+                    <property name= "marshaller">
+                        <bean class= "org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                            <property name= "packagesToScan" value= "com.thoughtworks.server">
+                            </property>
+                        </bean>
+                    </property>
+                </bean>
+            </list>
         </property>
     </bean>
 
