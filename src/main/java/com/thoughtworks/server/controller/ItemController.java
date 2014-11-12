@@ -18,6 +18,11 @@ public class ItemController {
         return itemServiceImpl. getItemById(id);
     }
 
+    @RequestMapping(value = "/items/{id}", method = RequestMethod.DELETE)
+    public void deleteItemById(@PathVariable int id){
+        itemServiceImpl. deleteItemById(id);
+    }
+
     @RequestMapping(value = "/items", method = RequestMethod.GET)
     public @ResponseBody List<Item> getItems(){
         return itemServiceImpl. getItems();
