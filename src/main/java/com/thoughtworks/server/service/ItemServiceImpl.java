@@ -13,17 +13,23 @@ public class ItemServiceImpl implements ItemService {
     private ItemDao itemDaoImpl;
 
     @Override
-    public Item getItemById(int id) {
-        return itemDaoImpl.getItemById(id);
-    }
-
-    @Override
     public void setItemDaoImpl(ItemDao itemDaoImpl) {
         this.itemDaoImpl = itemDaoImpl;
     }
 
     @Override
+    public Item getItemById(int id) {
+        return itemDaoImpl.getItemById(id);
+    }
+
+    @Override
+    public void deleteItemById(int id) {
+
+    }
+    @Override
     public List<Item> getItems() {
         return itemDaoImpl.getItems();
     }
+
+
 }

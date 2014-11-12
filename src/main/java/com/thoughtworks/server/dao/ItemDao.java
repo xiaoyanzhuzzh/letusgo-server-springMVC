@@ -8,4 +8,6 @@ public interface ItemDao {
     Item getItemById(int id);
 
     List<Item> getItems();
+
+    void deleteItemById(int id);
 }

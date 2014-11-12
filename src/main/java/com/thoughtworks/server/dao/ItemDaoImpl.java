@@ -29,6 +29,11 @@ public class ItemDaoImpl implements ItemDao{
     }
 
     @Override
+    public void deleteItemById(int id) {
+
+    }
+
+    @Override
     public List<Item> getItems() {
         String sql = "SELECT * FROM items";
 
